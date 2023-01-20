@@ -3,8 +3,6 @@ const express = require('express');
 const {ctrlWrapper} = require("../../middlewares");
 const {contacts: ctrl} = require('../../controllers');
 
-const router = express.Router();
-
 router.get('/', ctrlWrapper(ctrl.getAll));
 
 router.get('/:id', ctrlWrapper(ctrl.getById));
