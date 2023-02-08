@@ -22,9 +22,7 @@ const updataAvatar = async (req, res) => {
 
     Jimp.read(avatarURL)
       .then(avatar => {
-      
-      console.log("jimp worked")
-
+    
       return avatar
         .resize(250, 250) // resize
         .write(resultUpload); // save
@@ -33,7 +31,6 @@ const updataAvatar = async (req, res) => {
       console.error(err);
     });
     
-    console.log("avatarURL", avatarURL)
     await User.findByIdAndUpdate(req.user._id, { avatarURL });
 
     res.status(200).json({

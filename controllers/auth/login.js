@@ -25,7 +25,7 @@ const login = async(req,res) => {
     const {error} = joiShema.validate(userData);
 
     if(error){
-      console.log(error.message)
+      // console.log(error.message)
         const errorMsg = error.message
 
         res.status(400).json({
@@ -35,7 +35,7 @@ const login = async(req,res) => {
         });
       }
 
-    if(!user && !error){
+      if(!user || !user.verify && !error){
 
       res.status(401).json({
         "status": 401,
